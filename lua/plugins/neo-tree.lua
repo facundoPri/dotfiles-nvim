@@ -8,6 +8,20 @@ return {
       'MunifTanjim/nui.nvim',
     },
     lazy = false,
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
+        window = {
+          mappings = {
+            ['<bs>'] = 'noop',
+          },
+        },
+      },
+    },
     keys = {
       { '<leader>e', ':Neotree toggle<CR>', desc = 'NeoTree toggle', silent = true },
     },
