@@ -61,7 +61,11 @@ return {
         end, { desc = 'git [D]iff against last commit' })
         -- Toggles
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
-        map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
+        map('n', '<leader>td', function()
+          local new_state = gitsigns.toggle_deleted()
+          gitsigns.toggle_word_diff(new_state)
+          gitsigns.toggle_linehl(new_state)
+        end, { desc = '[T]oggle inline git [d]iff' })
       end,
     },
   },
